@@ -7,7 +7,7 @@ date: "2026-09-22"
 ## Data Disclosure
 
 The data from this analysis is from the palmerpenguins dataset. This dataset is a standard python dataset and can be found at the following link : 
-[https://allisonhorst.github.io/palmerpenguins/](https://allisonhorst.github.io/palmerpenguins/) . This dataset is by  by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network and gives information about penguins. 
+[https://allisonhorst.github.io/palmerpenguins/](https://allisonhorst.github.io/palmerpenguins/) . This dataset is by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network and gives information about penguins. 
 
 The goal of this analysis is to compare body masss of the penguins across the different penguin species 
 
