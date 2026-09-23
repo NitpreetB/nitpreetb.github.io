@@ -5,7 +5,3 @@ title: "Nitpreet Bamra"
 ![](images/photo.jpg){width=250px}
 
 I graduated from the University of Waterloo where i studied Mechatronics Engineering. I am from a city just outside of Toronto, Ontario called Mississauga. I am hoping to get a greater understanding of Pyhton coding, machine learning and artifical intellegence from this program. 
-
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
