@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "posts/r-post/index.html",
+    "href": "posts/r-post/index.html",
+    "title": "Penguin Bill Dimensions by Species",
+    "section": "",
+    "text": "The data from this analysis is from the Palmer Penguins dataset. This dataset can be found at the following link:\nhttps://allisonhorst.github.io/palmerpenguins/\nThis dataset is by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network, and gives information about penguins.\nThe goal of this analysis is to compare the bill dimensions of penguins across the different penguin species.\n\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ℹ 334 more rows\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
+  },
+  {
+    "objectID": "posts/r-post/index.html#data-disclosure",
+    "href": "posts/r-post/index.html#data-disclosure",
+    "title": "Penguin Bill Dimensions by Species",
+    "section": "",
+    "text": "The data from this analysis is from the Palmer Penguins dataset. This dataset can be found at the following link:\nhttps://allisonhorst.github.io/palmerpenguins/\nThis dataset is by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network, and gives information about penguins.\nThe goal of this analysis is to compare the bill dimensions of penguins across the different penguin species.\n\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ℹ 334 more rows\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
+  },
+  {
+    "objectID": "posts/r-post/index.html#data-exploration",
+    "href": "posts/r-post/index.html#data-exploration",
+    "title": "Penguin Bill Dimensions by Species",
+    "section": "Data Exploration",
+    "text": "Data Exploration\nunique species:\n\nunique_species &lt;- unique(penguins['species'])\n\nunique_species\n\n# A tibble: 3 × 1\n  species  \n  &lt;fct&gt;    \n1 Adelie   \n2 Gentoo   \n3 Chinstrap\n\n\nunique body mass:\n\nbody_mass &lt;- unique(penguins['body_mass_g'])\n\n\nbody_mass\n\n# A tibble: 95 × 1\n   body_mass_g\n         &lt;int&gt;\n 1        3750\n 2        3800\n 3        3250\n 4          NA\n 5        3450\n 6        3650\n 7        3625\n 8        4675\n 9        3475\n10        4250\n# ℹ 85 more rows"
+  },
+  {
+    "objectID": "posts/r-post/index.html#data-cleaning",
+    "href": "posts/r-post/index.html#data-cleaning",
+    "title": "Penguin Bill Dimensions by Species",
+    "section": "Data Cleaning",
+    "text": "Data Cleaning\nfirst lets remove all rows with either a null species or body_mass_g\n\npenguins_clean &lt;- penguins |&gt;\n  drop_na(species, body_mass_g)\n\npenguins_clean\n\n# A tibble: 342 × 8\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           36.7          19.3               193        3450\n 5 Adelie  Torgersen           39.3          20.6               190        3650\n 6 Adelie  Torgersen           38.9          17.8               181        3625\n 7 Adelie  Torgersen           39.2          19.6               195        4675\n 8 Adelie  Torgersen           34.1          18.1               193        3475\n 9 Adelie  Torgersen           42            20.2               190        4250\n10 Adelie  Torgersen           37.8          17.1               186        3300\n# ℹ 332 more rows\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
+  },
+  {
+    "objectID": "posts/r-post/index.html#average-bill-dimensions",
+    "href": "posts/r-post/index.html#average-bill-dimensions",
+    "title": "Penguin Bill Dimensions by Species",
+    "section": "Average Bill Dimensions",
+    "text": "Average Bill Dimensions\n\nmass_per_species &lt;- penguins_clean |&gt;\n  group_by(species) |&gt;\n  summarize(\n    mean_body_mass = mean(body_mass_g)\n  )\n\nmass_per_species\n\n# A tibble: 3 × 2\n  species   mean_body_mass\n  &lt;fct&gt;              &lt;dbl&gt;\n1 Adelie             3701.\n2 Chinstrap          3733.\n3 Gentoo             5076."
+  },
+  {
+    "objectID": "posts/r-post/index.html#bill-dimensions-by-species",
+    "href": "posts/r-post/index.html#bill-dimensions-by-species",
+    "title": "Penguin Bill Dimensions by Species",
+    "section": "Bill Dimensions by Species",
+    "text": "Bill Dimensions by Species\n\nggplot(\n  penguins_clean,\n  aes(\n    x = bill_length_mm,\n    y = bill_depth_mm,\n    colour = species\n  )\n) +\n  geom_point() +\n  labs(\n    x = \"Bill Length (mm)\",\n    y = \"Bill Depth (mm)\",\n    colour = \"Species\"\n  )\n\n\n\n\n\n\n\nFigure 1: Bill length and bill depth across penguin species.\n\n\n\n\n\nThe figure shows how bill length and bill depth vary across the different penguin species."
+  },
+  {
     "objectID": "posts/first-weeks/index.html",
     "href": "posts/first-weeks/index.html",
     "title": "My first weeks in MDS",
@@ -11,7 +53,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Penguin Body Mass by Species\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nNitpreet Bamra\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nNitpreet Bamra\n\n\n\n\n\nNo matching items"
+    "text": "Penguin Body Mass by Species\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nNitpreet Bamra\n\n\n\n\n\n\n\n\n\n\n\n\nPenguin Bill Dimensions by Species\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nNitpreet Bamra\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nNitpreet Bamra\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -56,41 +98,6 @@
     "text": "The data from this analysis is from the palmerpenguins dataset. This dataset is a standard python dataset and can be found at the following link : https://allisonhorst.github.io/palmerpenguins/ . This dataset is by by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network and gives information about penguins.\nThe goal of this analysis is to compare body masss of the penguins across the different penguin species\n\nfrom palmerpenguins import load_penguins\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\npenguins = load_penguins()\npenguins.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
   },
   {
-    "objectID": "posts/python-post/index.html#data",
-    "href": "posts/python-post/index.html#data",
-    "title": "Penguin Body Mass by Species and Sex",
-    "section": "",
-    "text": "This analysis uses the Palmer Penguins dataset, from Palmer Station Antarctica LTER.\nThe goal of this analysis is to compare penguin body mass across species and sex."
-  },
-  {
-    "objectID": "posts/python-post/index.html#load-the-data",
-    "href": "posts/python-post/index.html#load-the-data",
-    "title": "Penguin Body Mass by Species and Sex",
-    "section": "Load the data",
-    "text": "Load the data\n\nfrom palmerpenguins import load_penguins\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\npenguins = load_penguins()\npenguins.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n\n\n\n\n\nThe dataset contains measurements for penguins from three different species. For this analysis, I will focus on species, sex, and body mass."
-  },
-  {
-    "objectID": "posts/python-post/index.html#clean-the-data",
-    "href": "posts/python-post/index.html#clean-the-data",
-    "title": "Penguin Body Mass by Species",
-    "section": "Clean the data",
-    "text": "Clean the data\n\npenguins_clean = penguins.dropna(\n    subset=[\"species\", \"sex\", \"body_mass_g\"]\n)\n\npenguins_clean.shape\n\n(333, 8)\n\n\nRows with missing values for species, sex, or body mass were removed before performing the analysis."
-  },
-  {
-    "objectID": "posts/python-post/index.html#average-body-mass",
-    "href": "posts/python-post/index.html#average-body-mass",
-    "title": "Penguin Body Mass by Species",
-    "section": "Average body mass",
-    "text": "Average body mass\n\nmass_per_species = (\npenguins_clean.groupby(by=\"species\").agg(\n    {\n        \"body_mass_g\": [\"mean\"]\n    }\n     )\n)\n\nmass_per_species\n\n\n\n\n\n\n\n\nbody_mass_g\n\n\n\nmean\n\n\nspecies\n\n\n\n\n\nAdelie\n3700.662252\n\n\nChinstrap\n3733.088235\n\n\nGentoo\n5076.016260\n\n\n\n\n\n\n\nThe table above shows the average body mass for male and female penguins within each species."
-  },
-  {
-    "objectID": "posts/python-post/index.html#body-mass-by-species-and-sex",
-    "href": "posts/python-post/index.html#body-mass-by-species-and-sex",
-    "title": "Penguin Body Mass by Species",
-    "section": "Body mass by species and sex",
-    "text": "Body mass by species and sex\n\nmass_per_species.plot(kind=\"bar\")\nplt.ylabel(\"Average body mass (g)\")\nplt.xlabel(\"Species\")\nplt.show()\n\n\n\n\n\n\n\nFigure 1: Average penguin body mass by species.\n\n\n\n\n\nThe figure shows how the mean body mass of the penguins changes based on thier species and how the Gentoo species has the highest mean body weight"
-  },
-  {
     "objectID": "posts/python-post/index.html#data-disclosure",
     "href": "posts/python-post/index.html#data-disclosure",
     "title": "Penguin Body Mass by Species",
@@ -110,5 +117,33 @@
     "title": "Penguin Body Mass by Species",
     "section": "data cleaning",
     "text": "data cleaning\nfirst lets remove all rows with either a null species or body_mass_g\n\npenguins_clean = penguins.dropna(\n    subset=[\"species\", \"body_mass_g\"]\n)\n\npenguins_clean\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n5\nAdelie\nTorgersen\n39.3\n20.6\n190.0\n3650.0\nmale\n2007\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n340\nChinstrap\nDream\n43.5\n18.1\n202.0\n3400.0\nfemale\n2009\n\n\n341\nChinstrap\nDream\n49.6\n18.2\n193.0\n3775.0\nmale\n2009\n\n\n342\nChinstrap\nDream\n50.8\n19.0\n210.0\n4100.0\nmale\n2009\n\n\n343\nChinstrap\nDream\n50.2\n18.7\n198.0\n3775.0\nfemale\n2009\n\n\n\n\n342 rows × 8 columns"
+  },
+  {
+    "objectID": "posts/python-post/index.html#average-body-mass",
+    "href": "posts/python-post/index.html#average-body-mass",
+    "title": "Penguin Body Mass by Species",
+    "section": "Average body mass",
+    "text": "Average body mass\n\nmass_per_species = (\npenguins_clean.groupby(by=\"species\").agg(\n    {\n        \"body_mass_g\": [\"mean\"]\n    }\n     )\n)\n\nmass_per_species\n\n\n\n\n\n\n\n\nbody_mass_g\n\n\n\nmean\n\n\nspecies\n\n\n\n\n\nAdelie\n3700.662252\n\n\nChinstrap\n3733.088235\n\n\nGentoo\n5076.016260\n\n\n\n\n\n\n\nThe table above shows the average body mass for male and female penguins within each species."
+  },
+  {
+    "objectID": "posts/python-post/index.html#body-mass-by-species-and-sex",
+    "href": "posts/python-post/index.html#body-mass-by-species-and-sex",
+    "title": "Penguin Body Mass by Species",
+    "section": "Body mass by species and sex",
+    "text": "Body mass by species and sex\n\nmass_per_species.plot(kind=\"bar\")\nplt.ylabel(\"Average body mass (g)\")\nplt.xlabel(\"Species\")\nplt.show()\n\n\n\n\n\n\n\nFigure 1: Average penguin body mass by species.\n\n\n\n\n\nThe figure shows how the mean body mass of the penguins changes based on thier species and how the Gentoo species has the highest mean body weight"
+  },
+  {
+    "objectID": "posts/r-post/index.html#average-body-mass",
+    "href": "posts/r-post/index.html#average-body-mass",
+    "title": "Penguin Bill Dimensions by Species",
+    "section": "Average body mass",
+    "text": "Average body mass\n\nmass_per_species &lt;- penguins_clean |&gt;\n  group_by(species) |&gt;\n  summarize(\n    mean_body_mass = mean(body_mass_g)\n  )\n\nmass_per_species\n\n# A tibble: 3 × 2\n  species   mean_body_mass\n  &lt;fct&gt;              &lt;dbl&gt;\n1 Adelie             3701.\n2 Chinstrap          3733.\n3 Gentoo             5076."
+  },
+  {
+    "objectID": "posts/r-post/index.html#bar-graph-visualization",
+    "href": "posts/r-post/index.html#bar-graph-visualization",
+    "title": "Penguin Bill Dimensions by Species",
+    "section": "Bar Graph Visualization",
+    "text": "Bar Graph Visualization\nAI disclosure: The R code used to create the bar plot was generated with assistance from OpenAI’s ChatGPT (accessed September 22, 2026). OpenAI. (2026). ChatGPT [Large language model]. https://chatgpt.com/\n\nggplot(mass_per_species, aes(x = species, y = mean_body_mass)) +\n  geom_col() +\n  labs(\n    title = \"Average Body Mass by Penguin Species\",\n    x = \"Penguin Species\",\n    y = \"Average Body Mass (g)\"\n  ) +\n  theme_minimal()"
   }
 ]

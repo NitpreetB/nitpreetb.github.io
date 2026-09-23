@@ -1,0 +1,89 @@
+---
+title: "Penguin Bill Dimensions by Species"
+author: "Nitpreet Bamra"
+date: "2026-09-22"
+---
+
+## Data Disclosure
+
+The data from this analysis is from the Palmer Penguins dataset. This dataset can be found at the following link:
+
+https://allisonhorst.github.io/palmerpenguins/
+
+This dataset is by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network, and gives information about penguins.
+
+The goal of this analysis is to compare the bill dimensions of penguins across the different penguin species.
+
+```{r}
+#| message: false
+#| warning: false
+
+library(palmerpenguins)
+library(tidyverse)
+
+penguins
+```
+
+## Data Exploration
+
+unique species:
+
+```{r}
+#| warning: false
+
+unique_species <- unique(penguins['species'])
+
+unique_species
+```
+
+unique body mass:
+
+```{r}
+#| warning: false
+
+body_mass <- unique(penguins['body_mass_g'])
+
+
+body_mass
+```
+
+
+## Data Cleaning
+
+first lets remove all rows with either a null species or body_mass_g
+
+```{r}
+penguins_clean <- penguins |>
+  drop_na(species, body_mass_g)
+
+penguins_clean
+```
+
+## Average body mass
+
+```{r}
+mass_per_species <- penguins_clean |>
+  group_by(species) |>
+  summarize(
+    mean_body_mass = mean(body_mass_g)
+  )
+
+mass_per_species
+```
+
+
+## Bar Graph Visualization 
+
+AI disclosure: The R code used to create the bar plot was generated with assistance from OpenAI’s ChatGPT (accessed September 22, 2026).
+OpenAI. (2026). ChatGPT [Large language model]. https://chatgpt.com/
+
+```{r}
+ggplot(mass_per_species, aes(x = species, y = mean_body_mass)) +
+  geom_col() +
+  labs(
+    title = "Average Body Mass by Penguin Species",
+    x = "Penguin Species",
+    y = "Average Body Mass (g)"
+  ) +
+  theme_minimal()
+```
