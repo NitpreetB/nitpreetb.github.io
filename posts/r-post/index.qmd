@@ -14,8 +14,8 @@ This dataset is by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a
 The goal of this analysis is to compare the body mass of penguins across their diffrent species.
 
 ```{r}
-#| message: false
-#| warning: false
+#| message: true
+#| warning: true
 
 library(palmerpenguins)
 library(tidyverse)
@@ -77,6 +77,9 @@ AI disclosure: The R code used to create the bar plot was generated with assista
 OpenAI. (2026). ChatGPT [Large language model]. https://chatgpt.com/
 
 ```{r}
+#| label: fig-avg-body-mass
+#| fig-cap: "Average Body Mass by Penguin Species"
+
 ggplot(mass_per_species, aes(x = species, y = mean_body_mass)) +
   geom_col() +
   labs(
